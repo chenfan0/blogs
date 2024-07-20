@@ -69,7 +69,7 @@ const DesktopHeader: React.FC<{ menus: { label: string; href: string }[] }> = ({
       <Link href="/">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          className="inline-block h-[18px] mr-4 cursor-pointer dark:invert"
+          className="inline-block h-[32px] mr-4 cursor-pointer"
           src={config.logo}
           alt="logo"
         />
@@ -131,7 +131,6 @@ const Header = () => {
       { label: t('nav.home'), href: '/' },
       { label: t('nav.posts'), href: '/posts' },
       { label: t('nav.tags'), href: '/tags' },
-      { label: t('nav.friends'), href: '/friends' },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],

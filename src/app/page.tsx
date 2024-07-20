@@ -21,14 +21,10 @@ export default async function Home() {
       <div className="prose-container">
         <Profile />
         <p className="mt-4 break-words leading-loose">
-          你好 👋，我是一个前端开发人员（2017 ～ 至今），从事于直播行业，工作地在杭州。
+          你好 👋，欢迎来到我的个人博客。
         </p>
         <p className="mt-4 break-words leading-loose">
-          我一直对前端开发怀着浓厚的兴趣和热忱，同时也持续关注着设计领域的动态与发展，让我感到兴奋的一些事情包括
-          CSS、设计风格、动效、打造出色的组件 API、以及让界面更加生动有趣。
-        </p>
-        <p className="mt-4 break-words leading-loose">
-          除此之外我还痴迷于提高个人生产力，我认为同样一个设备或 App 在我手中总能变得更好用 😎。
+          我是一个前端开发人员（2023 ～ 至今），一个普普通通的切图仔，目前工作地点在深圳。
         </p>
         <Title text={t('home-page.posts.title')} />
         <LatestPosts />
@@ -45,7 +41,8 @@ export default async function Home() {
         <div className="text-center mt-6">
           <Link
             className="inline-flex items-center justify-center gap-1 text-zinc-400 border-b border-zinc-400/10 hover:border-zinc-400/50 transition-colors"
-            href="https://github.com/xiaojundebug?tab=repositories&sort=stargazers"
+            href="https://github.com/chenfan0?tab=repositories&sort=stargazers"
+            target='_blank'
           >
             {t('home-page.projects.view-all')}
           </Link>

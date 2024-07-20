@@ -20,7 +20,7 @@ const Profile = () => {
         {config.avatar && (
           <div className="relative flex-shrink-0">
             <Image
-              className="object-cover rounded-full p-1 bg-white dark:bg-zinc-900 ring-2 ring-zinc-400/20 shadow-lg dark:shadow-none shadow-zinc-600/10"
+              className="w-[80px] h-[80px] object-cover rounded-full p-1 bg-white dark:bg-zinc-900 ring-2 ring-zinc-400/20 shadow-lg dark:shadow-none shadow-zinc-600/10"
               src={config.avatar}
               alt="avatar"
               width={80}

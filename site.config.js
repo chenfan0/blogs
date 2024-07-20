@@ -1,24 +1,15 @@
 module.exports = {
-  name: 'Xiaojun Zhou',
-  title: 'Xiaojun Zhou',
-  description: '欲买桂花同载酒，终不似，少年游。',
+  name: 'Fan Chen',
+  title: 'Fan Chen',
+  description: '每天进步一点点 🚀',
   avatar: '/avatar.png',
-  logo: '/logo.svg',
-  siteUrl: 'https://www.xiaojun.im',
+  logo: '/logo.png',
+  siteUrl: 'https://blog.chenfan.cc',
   // icon 请在 src/components/Profile.tsx 中修改
   links: [
-    { name: 'GitHub', link: 'https://github.com/xiaojundebug' },
-    { name: 'X', link: 'https://twitter.com/xiaojundebug' },
-    { name: '稀土掘金', link: 'https://juejin.cn/user/3386151543772328' },
+    { name: 'GitHub', link: 'https://github.com/chenfan0' },
+    { name: '稀土掘金', link: 'https://juejin.cn/user/1126370596894606' },
     { name: 'RSS', link: '/feed.xml' },
-  ],
-  friends: [
-    { name: '赖同学', link: 'https://www.laibh.com' },
-    { name: '鯊手', link: 'https://www.cnblogs.com/Scooby' },
-    { name: '戴兜', link: 'https://im.daidr.me' },
-    { name: 'lufangzhou', link: 'https://zhoufanglu.github.io/vuepressBlog' },
-    { name: 'wallleap', link: 'https://myblog.wallleap.cn' },
-    { name: 'Song\'s Blog', link: 'https://songxwn.com' },
   ],
   // en | zh-CN
   language: 'zh-CN',

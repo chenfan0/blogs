@@ -18,10 +18,10 @@ export default async function sitemap() {
       url: getSiteUrl('/tags').href,
       lastModified: new Date(),
     },
-    {
-      url: getSiteUrl('/friends').href,
-      lastModified: new Date(),
-    },
+    // {
+    //   url: getSiteUrl('/friends').href,
+    //   lastModified: new Date(),
+    // },
   ] satisfies MetadataRoute.Sitemap
 
   const posts = await getLatestPosts()
