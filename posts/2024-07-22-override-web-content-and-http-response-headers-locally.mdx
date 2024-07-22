@@ -1,0 +1,42 @@
+---
+title: 'Chrome Devtool 替换文件以及修改HTTP响应头'
+date: '2024-07-22T14:10:19.963Z'
+tags:
+  - Devtool
+---
+
+<img className="rounded-xl" src="/images/override-web-content-and-http-response-headers-locally/top.webp" />
+
+>这篇Blog主要是演示如何在Chrome中对静态文件进行替换以及修改静态文件的内容以达到我们想要的效果
+
+## 如何替换文件？
+
+- 这里以 [Vue官网](https://vuejs.org/)为例子。
+
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture1.webp" />
+
+- 假如我们现在想要替换 **app.ct5wAbo5.js** 这个js文件的内容。那么我们只需要右击这个文件然后选择 **override content**
+
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture2.webp" />
+
+- 然后点击 **Select Folder**
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture3.webp" />
+
+- 然后允许获得访问权限
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture4.webp" />
+
+- 然后就会自动在你之前选择的文件夹生成如下目录
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture5.webp" />
+
+- 同时**source**下的**app.ct5wAbo5.js**也会有一个紫色小点，那么就说明替换成功了。
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture6.webp" />
+
+- 这个时候我们就可以对文件的内容进行修改了，修改完后只需要重新刷新页面即可。
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture7.webp" />
+
+- 如果不需要对文件进行覆盖了，也非常简单。只需要在**source tab** 中选择 **override**，然后点击右边的消除图标即可。
+
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture8.webp" />
+
+## 如何修改Http响应头？
+- TODO
