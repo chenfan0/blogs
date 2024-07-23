@@ -38,5 +38,23 @@ tags:
 
 <img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture8.webp" />
 
-## 如何修改Http响应头？
-- TODO
+## 如何重写Http 响应头
+- 想要重写Http响应头也是非常简单的，还是以[Vue官网](https://vuejs.org/)为例子。我们选择要重新的请求，这里以**vuejs.org**html文件为例子。
+右键点击该请求，然后选择**Override headers**
+
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture9.webp" />
+
+- 之后我们就可以对响应头进行修改了。只需要对想要修改的响应头进行编辑即可。如果有想要新增的响应头，只需要点击下方的**+ Add header**即可。
+如果想要对所有请求都生效，我们可以点击右上方的 **.headers**
+
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture10.webp" />
+
+- 在 **.headers** 中，我们可以通过**Add override rule**来添加规则。**Apply to**是指定生效的范围。
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture11.webp" />
+
+- 在编辑完**.headers**文件后，我们只需要保存然后重新刷新页面即可。在刷新完后，可以看到以 **https://vuejs.org/** 开头的请求都有紫色小点，那么就说明我们的修改生效了。
+
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture12.webp" />
+
+- 然后选择对应的请求，可以发现我们的修改已经生效了。
+<img className="rounded-xl" loading="lazy" src="/images/override-web-content-and-http-response-headers-locally/picture13.webp" />
