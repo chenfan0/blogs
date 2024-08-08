@@ -1,5 +1,5 @@
 ---
-title: 'next.js 学习笔记'
+title: 'next.js 学习笔记(routing)'
 date: '2024-08-07T12:38:02.598Z'
 tags:
   - next.js
@@ -12,20 +12,91 @@ tags:
 ## Routing(路由， 以下内容都是app router)
 
 ### Defining Routes(定义路由)
-Next.js的路由是基于文件系统的, 只要在目录下有个`page.(js|ts|jsx|tsx)`文件，那么这个目录名就会成为一个可访问的路由地址。
+Next.js的路由是基于文件系统的, 只要在目录下有个`page.(js|jsx|tsx)`文件，那么这个目录名就会成为一个可访问的路由地址。
 
 ### Pages and Layouts(页面和布局)
 
 #### Pages
 
-`page.(js|ts|jsx|tsx)`文件可以让路由变成public access。默认情况下`page.(js|ts|jsx|tsx)`的组件都是`server components`
+`page.(js|jsx|tsx)`文件可以让路由变成public access。默认情况下`page.(js|jsx|tsx)`的组件都是`server components`
 
 #### Layouts
-`Layout.(js|ts|jsx|tsx)`文件可以做到让布局在多个路由中共享。Layout组件会接受一个`Children`属性，这个属性就是当前路由的内容。
+`Layout.(js|jsx|tsx)`文件可以做到让布局在多个路由中共享。Layout组件会接受一个`Children`属性，这个属性就是当前路由的内容。
 
 ##### Root Layout(Required)
-在 `app`目录下必须要有一个`layout.(js|ts|jsx|tsx)`文件，这个文件是整个app的根布局。同时在该layout文件中，需要有`html` 和 `body`标签。
+- 在 `app`目录下必须要有一个`layout.(js|jsx|tsx)`文件，这个文件是整个app的根布局。同时在该layout文件中，需要有`html` 和 `body`标签。
+- 其他的嵌套`layout`文件不允许有`html` 和 `body`标签。
+- `layout`默认是`server components`。 没有办法在 parent layout 和 child layout 之间传递数据。
+
+#### Templates
+`Template.(js|jsx|tsx)` 文件和 `Layout` 文件的区别是在路由导航的时候， `Template` 实例会**重新创建**，而 layout 不会
+
+#### Metadata
+`Metadata`可以通过在`page.js`或者`layout.js`导出`metadata`对象来定义，或者通过`generateMetadata`函数来动态生成。
+```tsx
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Next.js',
+}
+
+// or Dynamic metadata
+export async function generateMetadata({ params }) {
+  return {
+    title: '...',
+  }
+}
 
 
+export default function Page() {
+  return '...'
+}
+```
 
+### Linking and Navigation
 
+#### Link组件
+这是主要并且推荐的一种路由跳转方式， 提供了`prefetching`的功能
+```tsx
+import Link from 'next/link'
+
+export default function Page() {
+  return <Link href="/dashboard">Dashboard</Link>
+}
+```
+如果想要知道当前的路由可以通过`usePathname` hook来获取
+```tsx
+'use client'
+import { usePathname } from 'next/navigation'
+
+export function Page() {
+  const pathname = usePathname()
+  return <p>Current path: {pathname}</p>
+}
+```
+#### useRouter() hook
+`useRouter` hook 允许通过编程的方式在`Client Components`进行路由跳转
+```tsx
+'use client'
+
+import { useRouter } from 'next/navigation'
+
+export deafult function Page() {
+  const router = useRouter()
+
+  return (
+    <button onClick={() => router.push('/dashboard')}>Go to dashboard</button>
+  )
+}
+```
+
+#### redirect function
+在 `server components`中可以通过`redirect`函数来进行路由跳转。**不能**在事件处理函数中使用`redirect`函数。
+```tsx
+
+### Loading UI and Streaming
+#### instant loading
+`loading.js`通过`React Suspense`帮助创建一个有用的loading UI。当路由导航的时候，`loading.js`会被渲染。
+实际上`loading.js`是一个包裹了`page.js`的`React Suspense`组件的fallback。
+
+#### Streaming
