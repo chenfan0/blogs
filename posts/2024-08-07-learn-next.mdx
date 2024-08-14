@@ -94,9 +94,51 @@ export deafult function Page() {
 在 `server components`中可以通过`redirect`函数来进行路由跳转。**不能**在事件处理函数中使用`redirect`函数。
 ```tsx
 
+### Error Handling
+#### Using Error Boundaries
+通过添加`error.tsx`文件可以处理子组件的错误, 当子组件发生错误的时候，`error.tsx`会被渲染。
+```tsx
+'use client' // Error boundaries must be Client Components
+
+import { useEffect } from 'react'
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string }
+  reset: () => void
+}) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error)
+  }, [error])
+
+  return (
+    <div>
+      <h2>Something went wrong!</h2>
+      <button
+        onClick={
+          // Attempt to recover by trying to re-render the segment
+          () => reset()
+        }
+      >
+        Try again
+      </button>
+    </div>
+  )
+}
+```
+
+#### Handling Global Errors
+在 `app/global-error.tsx`文件中可以处理全局错误。注意需要有`html`和`body`标签。
+
+
 ### Loading UI and Streaming
 #### instant loading
 `loading.js`通过`React Suspense`帮助创建一个有用的loading UI。当路由导航的时候，`loading.js`会被渲染。
 实际上`loading.js`是一个包裹了`page.js`的`React Suspense`组件的fallback。
 
 #### Streaming
+import { error } from "console"
+
