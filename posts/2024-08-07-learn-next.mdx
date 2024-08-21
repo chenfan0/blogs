@@ -76,6 +76,7 @@ export function Page() {
 ```
 #### useRouter() hook
 `useRouter` hook 允许通过编程的方式在`Client Components`进行路由跳转
+
 ```tsx
 'use client'
 
@@ -92,7 +93,6 @@ export deafult function Page() {
 
 #### redirect function
 在 `server components`中可以通过`redirect`函数来进行路由跳转。**不能**在事件处理函数中使用`redirect`函数。
-```tsx
 
 ### Error Handling
 #### Using Error Boundaries
@@ -140,5 +140,4 @@ export default function Error({
 实际上`loading.js`是一个包裹了`page.js`的`React Suspense`组件的fallback。
 
 #### Streaming
-import { error } from "console"
-
+[nextjs streaming](https://nextjs.org/docs/app/building-your-application/routing/loading-ui-and-streaming#what-is-streaming)
